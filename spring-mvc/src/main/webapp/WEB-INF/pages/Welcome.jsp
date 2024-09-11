@@ -11,6 +11,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%@ include file="Header.jsp"%>
 	<h1>Welcome to Spring MVC ...!!!</h1>
+<%@include file="Footer.jsp" %>
 </body>
 </html>
