@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;spring-mvc-language/src/main/resources/Untitled 4&apos; to &apos;messages_hi.properties&apos;" description="Rename resource &apos;Untitled 4&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/Untitled 4" name="messages_hi.properties" stamp="1726467071346" updateReferences="true"/>
+</session>
