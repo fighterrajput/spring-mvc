@@ -1,11 +1,13 @@
 package com.rays.ctl;
 
+import java.util.Locale;
+
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,9 +26,12 @@ public class LoginCtl {
 	@Autowired
 	public UserService service;
 
+	@Autowired
+	private MessageSource messageSource;
+
 	@GetMapping
 	public String display(@ModelAttribute("form") LoginForm form, @RequestParam(required = false) String operation,
-			HttpSession session) {
+			HttpSession session, Locale locale) {
 
 		if (operation != null && operation.equals("logout")) {
 			session.invalidate();
@@ -38,7 +43,7 @@ public class LoginCtl {
 
 	@PostMapping
 	public String submit(@ModelAttribute("form") @Valid LoginForm form, BindingResult bindingResult,
-			@RequestParam(required = false) String operation, HttpSession session, Model model) {
+			@RequestParam(required = false) String operation, HttpSession session, Locale locale) {
 
 		if (operation.equals("signUp")) {
 			return "redirect:Register";
@@ -54,7 +59,6 @@ public class LoginCtl {
 			session.setAttribute("user", dto);
 			return "redirect:Welcome";
 		}
-		model.addAttribute("error", "login & password is invalid..!!");
 		return "LoginView";
 	}
 

@@ -33,9 +33,15 @@
 			<s:message code="header.hii"></s:message>
 			, Guest
 		</h3>
-
-		<a href="<c:url value="?lang=en"/>"><b>English</b></a> | <a
-			href="<c:url value="?lang=hi"/>"><b><s:message
+		<a href="<c:url value="Welcome"/>"><b><s:message
+					code="header.welcome" /></b></a>
+		<b>|</b>
+		<a href="<c:url value="Login"/>"><b><s:message
+					code="header.login" /></b></a>
+		<b>|</b>
+		<a href="<c:url value="?lang=en"/>"><b>English</b></a>
+		<b>|</b>
+		<a href="<c:url value="?lang=hi"/>"><b><s:message
 					code="header.hindi" /></b> </a>
 	</c:if>
 	<hr>

@@ -1,11 +1,7 @@
 package com.rays.ctl;
 
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,14 +25,10 @@ public class UserRegistrationCtl {
 	}
 
 	@PostMapping
-	public String submit(@ModelAttribute("form") @Valid UserRegistrationForm form, BindingResult bindingResult,
-			Model model) {
-
-		if (bindingResult.hasErrors()) {
-			return "UserRegistration";
-		}
+	public String submit(@ModelAttribute("form") UserRegistrationForm form) {
 
 		UserDTO dto = new UserDTO();
+
 		dto.setFirstName(form.getFirstName());
 		dto.setLastName(form.getLastName());
 		dto.setLogin(form.getLogin());
@@ -45,8 +37,6 @@ public class UserRegistrationCtl {
 		dto.setAddress(form.getAddress());
 
 		service.add(dto);
-
-		model.addAttribute("success", "User Registered Successfully..!!");
 
 		return "UserRegistration";
 	}

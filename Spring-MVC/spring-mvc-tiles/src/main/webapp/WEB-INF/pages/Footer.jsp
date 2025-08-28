@@ -21,7 +21,7 @@
 	<div class="footer">
 		<HR>
 		<h3>
-			<strong>Copyrights &copy; Rays Technologies by Ankit Rajput</strong>
+			<strong>Copyrights &copy; Rays Technologies</strong>
 		</h3>
 	</div>
 </body>

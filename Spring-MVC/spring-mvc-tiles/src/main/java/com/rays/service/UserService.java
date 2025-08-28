@@ -53,7 +53,6 @@ public class UserService {
 
 	public UserDTO authenticate(String login, String password) {
 		UserDTO dto = dao.authenticate(login, password);
-		System.out.println("authenticate");
 		return dto;
 	}
 

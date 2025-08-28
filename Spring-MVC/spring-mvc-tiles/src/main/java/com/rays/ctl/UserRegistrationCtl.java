@@ -1,8 +1,11 @@
 package com.rays.ctl;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,7 +17,7 @@ import com.rays.service.UserService;
 import com.rays.util.DataUtility;
 
 @Controller
-@RequestMapping(value = "	")
+@RequestMapping(value = "Register")
 public class UserRegistrationCtl {
 
 	@Autowired
@@ -26,14 +29,12 @@ public class UserRegistrationCtl {
 	}
 
 	@PostMapping
-	public String submit(@ModelAttribute("form") UserRegistrationForm form, Model model) {
+	public String submit(@ModelAttribute("form") @Valid UserRegistrationForm form, BindingResult bindingResult,
+			Model model) {
 
-		System.out.println(form.getFirstName());
-		System.out.println(form.getLastName());
-		System.out.println(form.getLogin());
-		System.out.println(form.getPassword());
-		System.out.println(form.getDob());
-		System.out.println(form.getAddress());
+		if (bindingResult.hasErrors()) {
+			return "UserRegistration";
+		}
 
 		UserDTO dto = new UserDTO();
 		dto.setFirstName(form.getFirstName());
@@ -42,9 +43,9 @@ public class UserRegistrationCtl {
 		dto.setPassword(form.getPassword());
 		dto.setDob(DataUtility.stringToDate(form.getDob()));
 		dto.setAddress(form.getAddress());
-		
+
 		service.add(dto);
-		
+
 		model.addAttribute("success", "User Registered Successfully..!!");
 
 		return "UserRegistration";

@@ -16,12 +16,12 @@
 		<sf:hidden path="pageNo" />
 		<table>
 			<tr>
-				<td><sf:input path="firstName" /></td>
+				<td><sf:input path="firstName" />&nbsp; &nbsp;</td>
 				<td><sf:select path="id">
 						<sf:option value="0">-----------select------------</sf:option>
 						<sf:options items="${userList}" itemValue="id"
 							itemLabel="firstName" />
-					</sf:select></td>
+					</sf:select>&nbsp; &nbsp;</td>
 				<td><input type="submit" name="operation" value="search">
 				</td>
 			</tr>
@@ -53,12 +53,17 @@
 				</tr>
 			</c:forEach>
 		</table>
-		<table>
+		<br>
+		<table style="width: 100%">
 			<tr>
-				<td><input type="submit" name="operation" value="previous"
-					${form.pageNo == 1 ? 'disabled="disabled"' : ''} /></td>
-				<td><input type="submit" name="operation" value="delete">
-				<td><input type="submit" name="operation" value="next"
+				<td style="width: 30%"><input type="submit" name="operation"
+					value="previous" ${form.pageNo == 1 ? 'disabled="disabled"' : ''} /></td>
+				<td style="width: 30%"><input type="submit" name="operation"
+					value="add"></td>
+				<td style="width: 25%"><input type="submit" name="operation"
+					value="delete"></td>
+				<td style="text-align: right;"><input type="submit"
+					name="operation" value="next"
 					${list.size() < 5 ? 'disabled="disabled"' : ''}></td>
 			</tr>
 		</table>

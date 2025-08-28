@@ -14,7 +14,7 @@
 		destroy-method="close">
 		<property name="driverClass" value="com.mysql.cj.jdbc.Driver" />
 		<property name="jdbcUrl"
-			value="jdbc:mysql://localhost:3306/spring" />
+			value="jdbc:mysql://localhost:3306/spring_mvc" />
 		<property name="user" value="root" />
 		<property name="password" value="root" />
 		<property name="acquireIncrement" value="10" />

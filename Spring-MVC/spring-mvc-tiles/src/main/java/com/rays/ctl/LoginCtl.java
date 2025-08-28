@@ -49,10 +49,8 @@ public class LoginCtl {
 		}
 
 		UserDTO dto = service.authenticate(form.getLogin(), form.getPassword());
-		System.out.println("loginctl authenticate");
 
 		if (dto != null) {
-			System.out.println("dto not null");
 			session.setAttribute("user", dto);
 			return "redirect:Welcome";
 		}

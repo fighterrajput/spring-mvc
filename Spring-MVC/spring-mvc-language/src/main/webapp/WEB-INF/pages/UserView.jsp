@@ -16,39 +16,44 @@
 		<div align="center">
 
 			<c:if test="${form.id>0}">
-				<h1 style="color: navy">Update User</h1>
+				<h1 style="color: navy">
+					<s:message code="user.label.updateUser" />
+				</h1>
 			</c:if>
 			<c:if test="${form.id==0}">
-				<h1 style="color: navy">Add User</h1>
+				<h1 style="color: navy">
+					<s:message code="user.label.addUser" />
+				</h1>
 			</c:if>
 			<table>
 				<tr>
-					<th align="left">First Name :</th>
+					<th align="left"><s:message code="user.label.firstName" /> :</th>
 					<td><sf:input path="firstName" /></td>
 				</tr>
 				<tr>
-					<th align="left">Last Name :</th>
+					<th align="left"><s:message code="user.label.lastName" /> :</th>
 					<td><sf:input path="lastName" /></td>
 				</tr>
 				<tr>
-					<th align="left">Login ID :</th>
+					<th align="left"><s:message code="user.label.login" /> :</th>
 					<td><sf:input path="login" /></td>
 				</tr>
 				<tr>
-					<th align="left">Password :</th>
+					<th align="left"><s:message code="user.label.password" /> :</th>
 					<td><sf:input path="password" /></td>
 				</tr>
 				<tr>
-					<th align="left">Date Of Birth :</th>
+					<th align="left"><s:message code="user.label.dob" /> :</th>
 					<td><sf:input path="dob" /></td>
 				</tr>
 				<tr>
-					<th align="left">Address :</th>
+					<th align="left"><s:message code="user.label.address" /> :</th>
 					<td><sf:input path="address" /></td>
 				</tr>
 				<tr>
 					<th></th>
-					<td><input type="submit" name="operation" value="save"></td>
+					<td><input type="submit" name="operation"
+						value="<s:message code="button.save" />"></td>
 				</tr>
 			</table>
 		</div>

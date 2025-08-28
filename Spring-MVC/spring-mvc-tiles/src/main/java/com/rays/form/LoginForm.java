@@ -6,7 +6,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 public class LoginForm {
 
 	@NotEmpty(message = "Login is required")
-	@Email(message = "Login is invalid email")
+	//@Email(message = "Login is invalid email")
 	private String login;
 
 	@NotEmpty(message = "password is required")

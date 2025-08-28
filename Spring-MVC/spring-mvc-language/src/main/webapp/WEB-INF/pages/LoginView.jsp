@@ -35,7 +35,8 @@
 					<th></th>
 					<td><input type="submit" name="operation"
 						value="<s:message code="button.signIn" />"> <input
-						type="submit" name="operation" value="signUp"></td>
+						type="submit" name="operation"
+						value="<s:message code="button.signUp" />"></td>
 				</tr>
 			</table>
 		</div>

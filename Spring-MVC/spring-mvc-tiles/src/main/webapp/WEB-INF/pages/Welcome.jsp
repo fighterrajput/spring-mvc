@@ -9,8 +9,15 @@
 </head>
 <body>
 	<%-- <%@ include file="Header.jsp"%> --%>
-	<h1>Welcome to Spring MVC ...!!!</h1>
 	<br>
-	<h1>${msg}</h1>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<div align="center">
+		<h1>spring-mvc-tiles</h1>
+	</div>
+	<%-- <%@ include file="Footer.jsp"%> --%>
 </body>
 </html>

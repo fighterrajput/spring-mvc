@@ -7,7 +7,6 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,7 +19,7 @@ import com.rays.service.UserService;
 import com.rays.util.DataUtility;
 
 @Controller
-@RequestMapping(value = "User")
+@RequestMapping(value = "/User")
 public class UserCtl {
 
 	@Autowired
@@ -50,11 +49,7 @@ public class UserCtl {
 	}
 
 	@PostMapping
-	public String submit(@ModelAttribute("form") @Valid UserForm form, BindingResult bindingResult, Model model) {
-
-		if (bindingResult.hasErrors()) {
-			return "UserView";
-		}
+	public String submit(@ModelAttribute("form") UserForm form) {
 
 		UserDTO dto = new UserDTO();
 		dto.setId(form.getId());
@@ -67,10 +62,8 @@ public class UserCtl {
 
 		if (form.getId() > 0) {
 			service.update(dto);
-			model.addAttribute("success", "User Updated Successfully..!!");
 		} else {
 			service.add(dto);
-			model.addAttribute("success", "User Added Successfully..!!");
 		}
 		return "UserView";
 	}
@@ -140,5 +133,7 @@ public class UserCtl {
 		model.addAttribute("list", list);
 
 		return "UserListView";
+
 	}
+
 }
